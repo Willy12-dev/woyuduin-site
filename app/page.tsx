@@ -153,7 +153,7 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
-            <a href="#pricing" className="bg-primary hover:bg-primary-dark text-white text-sm font-bold px-6 py-2.5 rounded-full transition-colors">
+            <a href="/download" className="bg-primary hover:bg-primary-dark text-white text-sm font-bold px-6 py-2.5 rounded-full transition-colors">
               Get Started
             </a>
           </div>
@@ -168,7 +168,7 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
-            <a href="#pricing" className="bg-primary text-white text-center font-bold py-3 rounded-full" onClick={() => setMobileMenu(false)}>
+            <a href="/download" className="bg-primary text-white text-center font-bold py-3 rounded-full" onClick={() => setMobileMenu(false)}>
               Get Started
             </a>
           </div>
@@ -196,8 +196,8 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a href="#pricing" className="bg-primary hover:bg-primary-dark text-white font-black text-lg px-10 py-4 rounded-full transition-all hover:scale-105 glow-primary">
-              Start Free Trial ⚡
+            <a href="/download" className="bg-primary hover:bg-primary-dark text-white font-black text-lg px-10 py-4 rounded-full transition-all hover:scale-105 glow-primary">
+              Download App ⚡
             </a>
             <a href="#how" className="glass hover:bg-white/10 text-white/70 font-bold text-lg px-10 py-4 rounded-full transition-all">
               How It Works
@@ -359,7 +359,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <a href="#" className={`block text-center font-bold py-3.5 rounded-full transition-all ${i === 1 ? "bg-primary hover:bg-primary-dark text-white" : "glass hover:bg-white/10 text-white/70"}`}>
-                  Start Free Trial
+                  Download App
                 </a>
               </div>
             ))}
@@ -412,7 +412,7 @@ export default function Home() {
               <p className="text-white/40 text-lg mb-8 max-w-lg mx-auto">
                 Every day you wait is a day you could have been free. Start now.
               </p>
-              <a href="#pricing" className="inline-block bg-primary hover:bg-primary-dark text-white font-black text-lg px-12 py-5 rounded-full transition-all hover:scale-105 glow-primary">
+              <a href="/download" className="inline-block bg-primary hover:bg-primary-dark text-white font-black text-lg px-12 py-5 rounded-full transition-all hover:scale-105 glow-primary">
                 Start Your 5-Day Free Trial ⚡
               </a>
               <p className="text-white/20 text-xs mt-6">No card required. Cancel anytime.</p>
