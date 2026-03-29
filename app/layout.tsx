@@ -9,6 +9,9 @@ const geistSans = localFont({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "IjKxHgKEUbe-uaMB6SnyAx-2u_dMRaOsuR6n6pCnt9I",
+  },
   title: "Woyuduin — What You Doing?! | Anti-Porn App for Men",
   description:
     "Block porn, kill urges, build discipline. Woyuduin is the anti-porn bodyguard that runs 24/7 — VPN blocker, 5-step interruption system, accountability partner, and a brotherhood of men fighting the same battle.",
