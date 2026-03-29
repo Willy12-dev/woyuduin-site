@@ -23,16 +23,52 @@ const FEATURES = [
     color: "from-red-500/20 to-red-900/10",
   },
   {
-    icon: "🧘",
-    title: "Urge Killer",
-    desc: "Guided breathing exercises, 10-minute urge timer, and 8 replacement actions. The urge WILL pass — this proves it.",
+    icon: "🤖",
+    title: "AI Counselor",
+    desc: "24/7 AI-powered support that talks you through urges, triggers, and tough moments. Like having a therapist in your pocket.",
+    color: "from-cyan-500/20 to-cyan-900/10",
+  },
+  {
+    icon: "🩺",
+    title: "Therapist Marketplace",
+    desc: "Book video, voice, or chat sessions with licensed professionals who specialize in porn addiction recovery. Real help, real results.",
+    color: "from-teal-500/20 to-teal-900/10",
+  },
+  {
+    icon: "📓",
+    title: "Journal & Mood Tracking",
+    desc: "Daily reflection prompts, mood tracking, and progress insights. Understand your patterns and watch yourself grow.",
+    color: "from-amber-500/20 to-amber-900/10",
+  },
+  {
+    icon: "📚",
+    title: "Recovery Curriculum",
+    desc: "Science-backed daily lessons on dopamine, triggers, rewiring, and mindset. 5 minutes a day that change your brain.",
     color: "from-blue-500/20 to-blue-900/10",
+  },
+  {
+    icon: "🔄",
+    title: "Habit Stacking",
+    desc: "Replace bad habits with good ones. Track exercise, reading, meditation, cold showers — and check them off daily.",
+    color: "from-lime-500/20 to-lime-900/10",
   },
   {
     icon: "🤝",
     title: "Accountability Partner",
-    desc: "Get matched with a real man on the same journey. Daily check-ins, panic button, private chat. You don't do this alone.",
+    desc: "Get matched with a real man on the same journey. Daily check-ins, panic button, follow each other's progress.",
     color: "from-green-500/20 to-green-900/10",
+  },
+  {
+    icon: "💑",
+    title: "Couples Mode",
+    desc: "Share your progress with your partner. Build trust through transparency. You control exactly what they see.",
+    color: "from-pink-500/20 to-pink-900/10",
+  },
+  {
+    icon: "🆘",
+    title: "Emergency Contacts",
+    desc: "One-tap call or text your trusted people when you're in crisis. Pre-loaded with a help message so you don't have to explain.",
+    color: "from-red-500/20 to-red-900/10",
   },
   {
     icon: "🔒",
@@ -42,8 +78,8 @@ const FEATURES = [
   },
   {
     icon: "📊",
-    title: "Streak Tracker & Reports",
-    desc: "Watch your days clean grow. Weekly reports, urge analytics, and a rank system from Fresh Start to LEGENDARY.",
+    title: "Streak Tracker & Leaderboard",
+    desc: "Watch your days clean grow. Compete on the global leaderboard. Earn ranks from Fresh Start to LEGENDARY.",
     color: "from-indigo-500/20 to-indigo-900/10",
   },
 ];
