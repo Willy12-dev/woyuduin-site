@@ -119,9 +119,9 @@ const TESTIMONIALS = [
 ];
 
 const PRICING = [
-  { plan: "Monthly", price: "$5", period: "/month", features: ["All premium features", "Cancel anytime"] },
-  { plan: "Yearly", price: "$30", period: "/year", equiv: "$2.50/mo", badge: "BEST VALUE", savings: "Save 50%", features: ["All premium features", "Priority partner matching", "Save 50% vs monthly"] },
-  { plan: "Lifetime", price: "$100", period: "one-time", badge: "POPULAR", features: ["All premium features", "Pay once, own forever", "All future updates included"] },
+  { plan: "1 Month", price: "$5", period: "/month", features: ["All premium features", "Cancel anytime"] },
+  { plan: "3 Months", price: "$12", period: "/3 months", equiv: "$4/mo", badge: "SAVE 20%", savings: "Save 20%", features: ["All premium features", "Priority partner matching", "Save 20% vs monthly"] },
+  { plan: "6 Months", price: "$20", period: "/6 months", equiv: "$3.33/mo", badge: "BEST VALUE", savings: "Save 33%", features: ["All premium features", "Priority partner matching", "All future updates", "Save 33% vs monthly"] },
 ];
 
 const FAQ = [
