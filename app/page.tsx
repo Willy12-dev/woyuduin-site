@@ -2,6 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  Shield, Zap, Bot, Stethoscope, BookOpen, GraduationCap,
+  RefreshCw, Users, Heart, Phone, Lock, Trophy,
+  Download, ArrowRight, Play, ChevronDown, Check,
+  Flame, Crown, Star, Award, Smartphone, Eye,
+  AlertTriangle, Clock, Wifi,
+} from "lucide-react";
 
 /* ─── DATA ─── */
 const NAV_LINKS = [
@@ -12,32 +19,32 @@ const NAV_LINKS = [
 ];
 
 const FEATURES = [
-  { icon: "🛡️", title: "VPN Content Blocker", desc: "Blocks 40+ adult sites at the network level. Works on EVERY app and browser.", color: "from-purple-500/20 to-purple-900/10", accent: "#7c3aed" },
-  { icon: "💥", title: "5-Step Interruption", desc: "STOP screen, breathing, distraction, reality check, action plan. Can't skip it.", color: "from-red-500/20 to-red-900/10", accent: "#ef4444" },
-  { icon: "🤖", title: "AI Counselor", desc: "24/7 AI support that talks you through urges, triggers, and tough moments.", color: "from-cyan-500/20 to-cyan-900/10", accent: "#06b6d4" },
-  { icon: "🩺", title: "Therapist Marketplace", desc: "Book video sessions with licensed professionals who specialize in recovery.", color: "from-teal-500/20 to-teal-900/10", accent: "#14b8a6" },
-  { icon: "📓", title: "Journal & Mood Tracking", desc: "Daily prompts, mood tracking, and insights. Understand your patterns.", color: "from-amber-500/20 to-amber-900/10", accent: "#f59e0b" },
-  { icon: "📚", title: "Recovery Curriculum", desc: "Science-backed lessons on dopamine, triggers, rewiring. 5 min daily.", color: "from-blue-500/20 to-blue-900/10", accent: "#3b82f6" },
-  { icon: "🔄", title: "Habit Stacking", desc: "Replace bad habits with good ones. Track exercise, reading, meditation.", color: "from-lime-500/20 to-lime-900/10", accent: "#84cc16" },
-  { icon: "🤝", title: "Accountability Partner", desc: "Matched with a real person. Daily check-ins, panic button, shared progress.", color: "from-green-500/20 to-green-900/10", accent: "#10b981" },
-  { icon: "💑", title: "Couples Mode", desc: "Share progress with your partner. Build trust through transparency.", color: "from-pink-500/20 to-pink-900/10", accent: "#ec4899" },
-  { icon: "🆘", title: "Emergency Contacts", desc: "One-tap call your trusted people in crisis. Pre-loaded help message.", color: "from-red-500/20 to-red-900/10", accent: "#ef4444" },
-  { icon: "🔒", title: "Tamper-Proof", desc: "PIN-locked, 24hr disable delay, root detection, boot auto-start.", color: "from-yellow-500/20 to-yellow-900/10", accent: "#eab308" },
-  { icon: "📊", title: "Streak & Leaderboard", desc: "Watch your days grow. Compete globally. Earn ranks to LEGENDARY.", color: "from-indigo-500/20 to-indigo-900/10", accent: "#6366f1" },
+  { Icon: Shield, title: "VPN Content Blocker", desc: "Blocks 40+ adult sites at the network level. Works on EVERY app and browser.", color: "from-purple-500/20 to-purple-900/10", accent: "#7c3aed" },
+  { Icon: AlertTriangle, title: "5-Step Interruption", desc: "STOP screen, breathing, distraction, reality check, action plan. Can't skip it.", color: "from-red-500/20 to-red-900/10", accent: "#ef4444" },
+  { Icon: Bot, title: "AI Counselor", desc: "24/7 AI support that talks you through urges, triggers, and tough moments.", color: "from-cyan-500/20 to-cyan-900/10", accent: "#06b6d4" },
+  { Icon: Stethoscope, title: "Therapist Marketplace", desc: "Book video sessions with licensed professionals who specialize in recovery.", color: "from-teal-500/20 to-teal-900/10", accent: "#14b8a6" },
+  { Icon: BookOpen, title: "Journal & Mood Tracking", desc: "Daily prompts, mood tracking, and insights. Understand your patterns.", color: "from-amber-500/20 to-amber-900/10", accent: "#f59e0b" },
+  { Icon: GraduationCap, title: "Recovery Curriculum", desc: "Science-backed lessons on dopamine, triggers, rewiring. 5 min daily.", color: "from-blue-500/20 to-blue-900/10", accent: "#3b82f6" },
+  { Icon: RefreshCw, title: "Habit Stacking", desc: "Replace bad habits with good ones. Track exercise, reading, meditation.", color: "from-lime-500/20 to-lime-900/10", accent: "#84cc16" },
+  { Icon: Users, title: "Accountability Partner", desc: "Matched with a real person. Daily check-ins, panic button, shared progress.", color: "from-green-500/20 to-green-900/10", accent: "#10b981" },
+  { Icon: Heart, title: "Couples Mode", desc: "Share progress with your partner. Build trust through transparency.", color: "from-pink-500/20 to-pink-900/10", accent: "#ec4899" },
+  { Icon: Phone, title: "Emergency Contacts", desc: "One-tap call your trusted people in crisis. Pre-loaded help message.", color: "from-red-500/20 to-red-900/10", accent: "#ef4444" },
+  { Icon: Lock, title: "Tamper-Proof", desc: "PIN-locked, 24hr disable delay, root detection, boot auto-start.", color: "from-yellow-500/20 to-yellow-900/10", accent: "#eab308" },
+  { Icon: Trophy, title: "Streak & Leaderboard", desc: "Watch your days grow. Compete globally. Earn ranks to LEGENDARY.", color: "from-indigo-500/20 to-indigo-900/10", accent: "#6366f1" },
 ];
 
 const HOW_IT_WORKS = [
-  { step: "01", icon: "📲", title: "Install & Activate", desc: "Download from Play Store. Grant permissions. Protection starts immediately." },
-  { step: "02", icon: "🛡️", title: "24/7 Protection", desc: "VPN blocker + screen monitor runs silently in the background. You forget it's there." },
-  { step: "03", icon: "💥", title: "Urge Hits? We Got You", desc: "The 5-step interruption fires. Breathing, distractions, your WHY. The urge dies." },
-  { step: "04", icon: "📈", title: "Watch Your Streak Grow", desc: "Every day clean is a win. Track progress, earn ranks, compete on the leaderboard." },
+  { step: "01", Icon: Smartphone, title: "Install & Activate", desc: "Download from Play Store. Grant permissions. Protection starts immediately." },
+  { step: "02", Icon: Shield, title: "24/7 Protection", desc: "VPN blocker + screen monitor runs silently in the background. You forget it's there." },
+  { step: "03", Icon: Zap, title: "Urge Hits? We Got You", desc: "The 5-step interruption fires. Breathing, distractions, your WHY. The urge dies." },
+  { step: "04", Icon: Trophy, title: "Watch Your Streak Grow", desc: "Every day clean is a win. Track progress, earn ranks, compete on the leaderboard." },
 ];
 
 const TESTIMONIALS = [
-  { name: "warrior_365", streak: 47, badge: "🔥", text: "47 days in. The sticker popup when I try to open anything caught me off guard. Now I just laugh and close the app. It works." },
-  { name: "kingstate_j", streak: 90, badge: "👑", text: "90 DAYS. Day 1 felt impossible. The accountability partner feature kept me going. Having someone check on you daily changes everything." },
-  { name: "newchapter_mike", streak: 7, badge: "⚡", text: "First full week clean in 3 years. Woyuduin fired 4 times on me but it worked. The interruption system is brutal in the best way." },
-  { name: "freedomseeker_t", streak: 180, badge: "🏆", text: "6 months. My relationship is better. My focus at work is insane. My confidence is back. This ONE change rippled into every area of my life." },
+  { name: "warrior_365", streak: 47, BadgeIcon: Flame, badgeColor: "#f59e0b", text: "47 days in. The sticker popup when I try to open anything caught me off guard. Now I just laugh and close the app. It works." },
+  { name: "kingstate_j", streak: 90, BadgeIcon: Crown, badgeColor: "#a78bfa", text: "90 DAYS. Day 1 felt impossible. The accountability partner feature kept me going. Having someone check on you daily changes everything." },
+  { name: "newchapter_mike", streak: 7, BadgeIcon: Zap, badgeColor: "#7c3aed", text: "First full week clean in 3 years. Woyuduin fired 4 times on me but it worked. The interruption system is brutal in the best way." },
+  { name: "freedomseeker_t", streak: 180, BadgeIcon: Award, badgeColor: "#10b981", text: "6 months. My relationship is better. My focus at work is insane. My confidence is back. This ONE change rippled into every area of my life." },
 ];
 
 const PRICING = [
@@ -156,7 +163,9 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5 group">
-            <span className="text-2xl group-hover:scale-110 transition-transform duration-300">⚡</span>
+            <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Zap className="w-4 h-4 text-primary-light" />
+            </div>
             <span className="text-xl font-black tracking-tight">Woyuduin</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
@@ -269,12 +278,13 @@ export default function Home() {
           >
             <a href="/download" className="group relative bg-primary hover:bg-primary-dark text-white font-black text-lg px-12 py-5 rounded-full transition-all hover:scale-105 glow-primary overflow-hidden">
               <span className="relative z-10 flex items-center justify-center gap-2">
+                <Download className="w-5 h-5" />
                 Download App
                 <motion.span
                   animate={{ x: [0, 4, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  →
+                  <ArrowRight className="w-5 h-5" />
                 </motion.span>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -331,11 +341,11 @@ export default function Home() {
                 <div className="glass rounded-2xl p-5 text-center relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
                   <div className="relative">
-                    <div className="text-3xl mb-1">🛡️</div>
+                    <div className="mb-1"><Shield className="w-8 h-8 text-primary mx-auto" /></div>
                     <div className="text-4xl font-black tracking-tight">47</div>
                     <div className="text-[9px] text-white/20 font-bold tracking-[4px] mt-1">DAYS CLEAN</div>
                     <div className="text-[10px] text-gold font-bold mt-2 flex items-center justify-center gap-1">
-                      <span>🔥</span> ON FIRE
+                      <Flame className="w-3 h-3" /> ON FIRE
                     </div>
                   </div>
                 </div>
@@ -428,9 +438,7 @@ export default function Home() {
                     className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center backdrop-blur-sm group-hover:bg-primary/30 transition-all"
                   >
                     <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center glow-primary">
-                      <svg className="w-6 h-6 md:w-7 md:h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                      <Play className="w-6 h-6 md:w-7 md:h-7 text-white ml-0.5" fill="currentColor" />
                     </div>
                   </motion.div>
                   <span className="text-sm text-white/40 font-semibold tracking-wide">Watch Demo</span>
@@ -438,7 +446,7 @@ export default function Home() {
 
                 {/* Corner decorations */}
                 <div className="absolute top-6 left-6 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-danger rounded-full animate-pulse" />
+                  <Eye className="w-3.5 h-3.5 text-danger animate-pulse" />
                   <span className="text-[10px] text-white/20 font-bold uppercase tracking-widest">Live Demo</span>
                 </div>
                 <div className="absolute bottom-6 right-6 text-[10px] text-white/15 font-mono">00:00 / 2:45</div>
@@ -479,8 +487,8 @@ export default function Home() {
             {FEATURES.map((f, i) => (
               <SectionReveal key={i} delay={i * 0.05}>
                 <div className="gradient-border rounded-2xl p-7 hover-lift card-shine group h-full">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.color} flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                    {f.icon}
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${f.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                    <f.Icon className="w-6 h-6" style={{ color: f.accent }} />
                   </div>
                   <h3 className="text-lg font-bold mb-2 group-hover:text-white transition-colors">{f.title}</h3>
                   <p className="text-white/35 text-sm leading-relaxed">{f.desc}</p>
@@ -518,8 +526,8 @@ export default function Home() {
                 <SectionReveal key={i} delay={i * 0.15}>
                   <div className="gradient-border rounded-2xl p-6 md:p-8 flex items-start gap-6 hover-lift card-shine">
                     <div className="relative">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-black text-lg shrink-0 group">
-                        <span className="text-2xl">{item.icon}</span>
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group">
+                        <item.Icon className="w-7 h-7 text-primary" />
                       </div>
                       <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-white text-[10px] font-black flex items-center justify-center">
                         {item.step}
@@ -560,8 +568,8 @@ export default function Home() {
               <SectionReveal key={i} delay={i * 0.1}>
                 <div className="gradient-border rounded-2xl p-7 hover-lift card-shine h-full">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-12 h-12 rounded-full bg-primary/15 border border-primary/20 flex items-center justify-center text-xl">
-                      {t.badge}
+                    <div className="w-12 h-12 rounded-full bg-primary/15 border border-primary/20 flex items-center justify-center">
+                      <t.BadgeIcon className="w-5 h-5" style={{ color: t.badgeColor }} />
                     </div>
                     <div>
                       <div className="font-bold text-sm text-white/90">{t.name}</div>
@@ -619,7 +627,7 @@ export default function Home() {
                   <ul className="space-y-3 mb-8">
                     {p.features.map((f, j) => (
                       <li key={j} className="flex items-center gap-3 text-sm text-white/40">
-                        <span className="text-success text-xs flex-shrink-0">✓</span>
+                        <Check className="w-4 h-4 text-success flex-shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -635,12 +643,12 @@ export default function Home() {
           <SectionReveal delay={0.3}>
             <div className="text-center mt-10 flex flex-wrap justify-center gap-3">
               {[
-                { icon: "₿", text: "BTC, ETH, USDT + 300 coins" },
-                { icon: "📱", text: "M-Pesa coming soon" },
-                { icon: "💳", text: "Card payments coming soon" },
+                { Icon: Wifi, text: "BTC, ETH, USDT + 300 coins" },
+                { Icon: Smartphone, text: "M-Pesa coming soon" },
+                { Icon: Star, text: "Card payments coming soon" },
               ].map((m, i) => (
                 <div key={i} className="glass rounded-full px-4 py-2 text-xs text-white/25 font-medium flex items-center gap-2">
-                  <span>{m.icon}</span> {m.text}
+                  <m.Icon className="w-3.5 h-3.5" /> {m.text}
                 </div>
               ))}
             </div>
@@ -672,11 +680,11 @@ export default function Home() {
                   >
                     <span className="font-bold text-sm pr-4 group-hover:text-primary-light transition-colors">{item.q}</span>
                     <motion.span
-                      animate={{ rotate: openFaq === i ? 45 : 0 }}
+                      animate={{ rotate: openFaq === i ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-white/30 text-xl shrink-0 w-6 h-6 flex items-center justify-center"
+                      className="text-white/30 shrink-0 w-6 h-6 flex items-center justify-center"
                     >
-                      +
+                      <ChevronDown className="w-5 h-5" />
                     </motion.span>
                   </button>
                   <AnimatePresence>
@@ -726,9 +734,11 @@ export default function Home() {
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.5, type: "spring" }}
                   viewport={{ once: true }}
-                  className="text-5xl mb-6"
+                  className="mb-6 flex justify-center"
                 >
-                  ⚡
+                  <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
+                    <Zap className="w-8 h-8 text-primary-light" />
+                  </div>
                 </motion.div>
                 <h2 className="text-3xl md:text-6xl font-black mb-5 hero-text-glow">Ready to Take Control?</h2>
                 <p className="text-white/35 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
@@ -737,7 +747,7 @@ export default function Home() {
                 <a href="/download" className="group relative inline-block bg-primary hover:bg-primary-dark text-white font-black text-lg px-14 py-6 rounded-full transition-all hover:scale-105 glow-primary overflow-hidden">
                   <span className="relative z-10 flex items-center gap-3">
                     Start Your 5-Day Free Trial
-                    <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
+                    <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}><ArrowRight className="w-5 h-5" /></motion.span>
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 </a>
@@ -753,7 +763,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">⚡</span>
+              <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+                <Zap className="w-4 h-4 text-primary-light" />
+              </div>
               <div>
                 <span className="font-black text-lg">Woyuduin</span>
                 <span className="text-white/15 text-sm ml-3">by Flowi Group</span>

@@ -11,6 +11,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const featurePages = [
+    'vpn-blocker',
+    'ai-counselor',
+    'accountability-partner',
+    'urge-interruption',
+    'couples-mode',
+    'journal',
+    'recovery-curriculum',
+    'habit-stacking',
+    'streak-tracker',
+  ];
+
+  const featureUrls = featurePages.map((slug) => ({
+    url: `https://woyuduin.com/features/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }));
+
   return [
     {
       url: 'https://woyuduin.com',
@@ -25,11 +44,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: 'https://woyuduin.com/pricing',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: 'https://woyuduin.com/blog',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    ...featureUrls,
     ...blogUrls,
     {
       url: 'https://woyuduin.com/privacy',
