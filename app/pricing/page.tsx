@@ -10,58 +10,59 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   const plans = [
     {
-      name: 'Free',
-      price: '$0',
-      period: 'forever',
+      name: 'Basic',
+      price: '$5',
+      period: '/month',
+      yearly: '$30/yr ($2.50/mo)',
+      lifetime: '$100 one-time',
       color: 'border-white/10',
-      cta: 'Download Free',
+      cta: 'Download App',
       ctaColor: 'bg-white/10 hover:bg-white/20 text-white',
       features: [
-        'VPN content blocker',
+        'VPN content blocker (40+ sites)',
+        'PIN protection with 24hr disable delay',
+        'Basic urge interruption (3 steps)',
         'Streak tracker with milestones',
-        '5-step urge interruption',
-        'Basic journal & mood tracking',
-        'Accountability partner matching',
-        'Recovery curriculum (first 30 days)',
-        'Habit stacking (5 pre-built stacks)',
         'Community access',
       ],
     },
     {
-      name: 'Premium',
-      price: '$4.99',
+      name: 'Pro',
+      price: '$12',
       period: '/month',
+      yearly: '$80/yr ($6.67/mo)',
+      lifetime: '$250 one-time',
       color: 'border-amber-500',
       cta: 'Start Free Trial',
       ctaColor: 'bg-amber-600 hover:bg-amber-700 text-white',
       popular: true,
       features: [
-        'Everything in Free, plus:',
-        'Unlimited AI counselor sessions',
-        'Full 90-day recovery curriculum',
-        'Advanced trigger pattern analysis',
-        'Custom habit stacks (unlimited)',
-        'Couples mode',
-        'Priority accountability matching',
+        'Everything in Basic, plus:',
+        'Full 5-step urge interruption',
+        'Journal & mood tracking',
+        'Habit stacking (unlimited)',
+        'AI Counselor',
+        'Accountability partner matching',
+        'Recovery curriculum (90 lessons)',
+        'Therapist marketplace',
         'Weekly progress reports',
-        'Export journal & data',
       ],
     },
     {
-      name: 'Family',
-      price: '$9.99',
+      name: 'Couples',
+      price: '$18',
       period: '/month',
+      yearly: '$130/yr ($10.83/mo)',
+      lifetime: '$400 one-time',
       color: 'border-white/10',
       cta: 'Start Free Trial',
       ctaColor: 'bg-white/10 hover:bg-white/20 text-white',
       features: [
-        'Everything in Premium, plus:',
-        'Up to 5 family members',
-        'Parental content controls',
-        'Family dashboard',
-        'Per-device configuration',
-        'Therapist marketplace discounts',
-        'Priority support',
+        'Everything in Pro, plus:',
+        'Couples mode',
+        'Shared streak & urge reports',
+        'Partner dashboard',
+        'Dual device support',
       ],
     },
   ];
@@ -86,6 +87,10 @@ export default function PricingPage() {
               <div className="mb-6">
                 <span className="text-4xl font-extrabold">{plan.price}</span>
                 <span className="text-gray-400 text-sm">{plan.period}</span>
+                <div className="flex gap-2 mt-3">
+                  <span className="text-xs text-amber-400/80 bg-amber-500/10 rounded-full px-3 py-1">{plan.yearly}</span>
+                  <span className="text-xs text-emerald-400/80 bg-emerald-500/10 rounded-full px-3 py-1">{plan.lifetime}</span>
+                </div>
               </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
@@ -103,8 +108,8 @@ export default function PricingPage() {
         </div>
 
         <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-3">7-Day Free Trial on All Paid Plans</h2>
-          <p className="text-gray-400 max-w-xl mx-auto">Try Premium or Family free for 7 days. Cancel anytime. No credit card required to start. If you can't afford it, email us — we'll give you Premium free. Recovery shouldn't depend on your wallet.</p>
+          <h2 className="text-2xl font-bold mb-3">5-Day Free Trial on Pro & Couples</h2>
+          <p className="text-gray-400 max-w-xl mx-auto">Try Pro or Couples free for 5 days. Cancel anytime. No credit card required to start. If you can&apos;t afford it, email us — we&apos;ll give you Pro free. Recovery shouldn&apos;t depend on your wallet.</p>
         </div>
       </div>
     </div>

@@ -48,9 +48,19 @@ const TESTIMONIALS = [
 ];
 
 const PRICING = [
-  { plan: "1 Month", price: "$5", period: "/month", features: ["All premium features", "Cancel anytime"] },
-  { plan: "3 Months", price: "$12", period: "/3 months", equiv: "$4/mo", badge: "SAVE 20%", savings: "Save 20%", features: ["All premium features", "Priority partner matching", "Save 20% vs monthly"] },
-  { plan: "6 Months", price: "$20", period: "/6 months", equiv: "$3.33/mo", badge: "BEST VALUE", savings: "Save 33%", features: ["All premium features", "Priority partner matching", "All future updates", "Save 33% vs monthly"] },
+  {
+    tier: "Basic", price: "$5", period: "/month", yearly: "$30/yr", lifetime: "$100",
+    features: ["VPN Content Blocker", "PIN Protection", "24hr Disable Delay", "Basic Urge Interruption", "Streak Tracker"],
+  },
+  {
+    tier: "Pro", price: "$12", period: "/month", yearly: "$80/yr", lifetime: "$250",
+    badge: "MOST POPULAR",
+    features: ["Everything in Basic", "Full 5-Step Interruption", "Journal & Habits", "AI Counselor", "Community & Accountability", "Recovery Curriculum", "Therapist Marketplace"],
+  },
+  {
+    tier: "Couples", price: "$18", period: "/month", yearly: "$130/yr", lifetime: "$400",
+    features: ["Everything in Pro", "Couples Mode", "Shared Reports & Streaks", "Partner Dashboard", "Dual Device Support"],
+  },
 ];
 
 const FAQ = [
@@ -618,11 +628,13 @@ export default function Home() {
                     </div>
                   )}
                   <div className="text-center mb-7 pt-2">
-                    <h3 className="text-lg font-bold mb-2 text-white/70">{p.plan}</h3>
+                    <h3 className="text-lg font-bold mb-2 text-white/70">{p.tier}</h3>
                     <div className="text-5xl font-black">{p.price}</div>
                     <div className="text-sm text-white/25 mt-1">{p.period}</div>
-                    {p.equiv && <div className="text-sm text-primary-light font-semibold mt-2">{p.equiv}</div>}
-                    {p.savings && <div className="text-xs text-success font-bold mt-1">{p.savings}</div>}
+                    <div className="flex justify-center gap-3 mt-3">
+                      <span className="text-xs text-primary-light font-semibold glass rounded-full px-3 py-1">{p.yearly}</span>
+                      <span className="text-xs text-success font-semibold glass rounded-full px-3 py-1">{p.lifetime} lifetime</span>
+                    </div>
                   </div>
                   <ul className="space-y-3 mb-8">
                     {p.features.map((f, j) => (

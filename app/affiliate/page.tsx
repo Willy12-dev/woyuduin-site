@@ -125,16 +125,16 @@ export default function AffiliatePage() {
               <h3 className="font-bold mb-4 text-center">Example Earnings</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between text-white/50">
-                  <span>10 referrals on 1-month plan ($5)</span>
+                  <span>10 referrals on Basic ($5/mo)</span>
                   <span className="text-success font-bold">$10/mo</span>
                 </div>
                 <div className="flex justify-between text-white/50">
-                  <span>50 referrals on 3-month plan ($12)</span>
-                  <span className="text-success font-bold">$120/quarter</span>
+                  <span>50 referrals on Pro ($12/mo)</span>
+                  <span className="text-success font-bold">$120/mo</span>
                 </div>
                 <div className="flex justify-between text-white/50">
-                  <span>100 referrals on 6-month plan ($20)</span>
-                  <span className="text-success font-bold">$400/6 months</span>
+                  <span>100 referrals on Couples ($18/mo)</span>
+                  <span className="text-success font-bold">$360/mo</span>
                 </div>
               </div>
             </div>

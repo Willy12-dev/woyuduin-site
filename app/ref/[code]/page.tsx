@@ -15,9 +15,9 @@ const FEATURES_HIGHLIGHT = [
 ];
 
 const PRICING = [
-  { plan: "1 Month", price: "$5", period: "/month", features: ["All premium features", "Cancel anytime"] },
-  { plan: "3 Months", price: "$12", period: "/3 months", equiv: "$4/mo", badge: "SAVE 20%", savings: "Save 20%", features: ["All premium features", "Priority partner matching", "Save 20% vs monthly"] },
-  { plan: "6 Months", price: "$20", period: "/6 months", equiv: "$3.33/mo", badge: "BEST VALUE", savings: "Save 33%", features: ["All premium features", "Priority partner matching", "All future updates", "Save 33% vs monthly"] },
+  { tier: "Basic", price: "$5", period: "/month", features: ["VPN Content Blocker", "PIN Protection", "Basic Urge Interruption", "Streak Tracker"] },
+  { tier: "Pro", price: "$12", period: "/month", badge: "MOST POPULAR", features: ["Everything in Basic", "AI Counselor", "Journal & Habits", "Community & Accountability", "Recovery Curriculum"] },
+  { tier: "Couples", price: "$18", period: "/month", features: ["Everything in Pro", "Couples Mode", "Shared Reports", "Partner Dashboard"] },
 ];
 
 export default function ReferralPage() {
@@ -178,11 +178,9 @@ export default function ReferralPage() {
                   </div>
                 )}
                 <div className="text-center mb-6 pt-2">
-                  <h3 className="text-lg font-bold mb-1">{p.plan}</h3>
+                  <h3 className="text-lg font-bold mb-1">{p.tier}</h3>
                   <div className="text-4xl font-black">{p.price}</div>
                   <div className="text-sm text-white/30">{p.period}</div>
-                  {p.equiv && <div className="text-sm text-primary-light font-semibold mt-1">{p.equiv}</div>}
-                  {p.savings && <div className="text-xs text-success font-bold mt-1">{p.savings}</div>}
                 </div>
                 <ul className="space-y-3 mb-8">
                   {p.features.map((f, j) => (
