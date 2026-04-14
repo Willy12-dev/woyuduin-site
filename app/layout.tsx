@@ -107,6 +107,17 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How does Woyuduin block porn?", "acceptedAnswer": { "@type": "Answer", "text": "Woyuduin creates a local VPN on your device that filters DNS requests. Adult sites are blocked at the network level — works on every app and browser. PIN-protected with a 24-hour disable delay." }},
+            { "@type": "Question", "name": "Is Woyuduin free?", "acceptedAnswer": { "@type": "Answer", "text": "Basic plan starts at $5/month with VPN blocker and PIN protection. Pro plan at $12/month adds AI counselor, journal, community, and accountability partners. 5-day free trial on Pro." }},
+            { "@type": "Question", "name": "Does Woyuduin work without internet?", "acceptedAnswer": { "@type": "Answer", "text": "The VPN blocker works offline. Journal, habits, and urge interruption work offline. Community features and AI counselor need internet." }},
+            { "@type": "Question", "name": "Can I disable the blocker when I get an urge?", "acceptedAnswer": { "@type": "Answer", "text": "That's the point — you can't. PIN protection with a 24-hour disable delay means by the time you can turn it off, the urge has passed." }},
+            { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "100%. All data stays on your device. We don't upload your browsing history, urge logs, or any personal data. The VPN runs locally." }}
+          ]
+        })}} />
       </head>
       <body
         className={`${geistSans.variable} font-sans antialiased bg-bg text-white`}
